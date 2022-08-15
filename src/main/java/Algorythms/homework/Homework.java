@@ -1,4 +1,4 @@
-package Lesson1.homework;
+package Algorythms.homework;
 
 // First level: Задача на сортировку:
 // Отсортировать по алфавиту список студентов группы.
@@ -12,11 +12,9 @@ package Lesson1.homework;
 // при сравнении именно будет использоваться именно лексикографический порядок, то что нужно.
 
 // 3. Отсортированный массив вывести в консоль, в виде: на отдельной строке: порядковый номер в списке - фамилия.
-// 4. Результат можно прислать в виде ссылки не решение на гитхабе или ссылки на файловый архив.
+// 4. Результат можно прислать в виде ссылки на гитхабе или ссылки на файловый архив.
 //
 // Second level: Выполнить аналогичное задание с помощью сортировки Выбором(Selection).
-
-import java.util.Arrays;
 
 public class Homework {
     public static void main(String[] args) {
@@ -53,7 +51,7 @@ public class Homework {
 
         // Selection sort
         String[] string2 = new String[]{s12, s11, s10, s9, s8, s7, s6, s5, s4, s3, s2, s1};
-        for (int j = 0; j < string2.length - 1; j++) {
+        for (int j = 0; j < string2.length; j++) {
             int maxPos = j;
             for (int i = j; i < string2.length; i++) {
                 if (string2[i].compareTo(string2[maxPos]) < 0) {
