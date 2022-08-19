@@ -12,6 +12,8 @@ public class SumOfArrayElements {
         int[] arr = new int[]{1, 2, 3, 4, 5};
         System.out.println("Sum Of Array Elements is: " + calculateSumOfArrayElements(arr, 0, arr.length));
         System.out.println("----------");
+        System.out.println("Sum Of Array Elements is: " + arraySum(arr, arr.length - 1));
+        System.out.println("----------");
     }
 
     public static int calculateSumOfArrayElements(int[] arr, int firstIndex, int lastIndex) {
@@ -21,5 +23,16 @@ public class SumOfArrayElements {
             int middle = (firstIndex + lastIndex) / 2;
             return calculateSumOfArrayElements(arr, firstIndex, middle) + calculateSumOfArrayElements(arr, middle, lastIndex);
         }
+    }
+
+    //Начальное значение индекса - (длина массива-1)
+    private static int arraySum(int[] arr, int index) {
+        if (index == 0) {
+            return arr[0]; // Базовый случай вернем первый элемент
+        }
+        //Проходим по массиву, пока индекс не будет == 0
+        //и начинаем складывать элементы с предыдущим
+        //когда рекурсивные методы будут завершать работу
+        return arr[index] + arraySum(arr, index - 1);
     }
 }

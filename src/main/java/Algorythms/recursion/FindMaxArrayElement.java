@@ -11,11 +11,14 @@ public class FindMaxArrayElement {
         int[] arr2 = {1, 4, 45, 6, -50, 10, 2};
         int n1 = arr1.length;
         int n2 = arr2.length;
+        int n3 = arr2.length - 1;
         System.out.println("In arr1 the maximum element is: ");
         System.out.println(findMaxArrayElement(n1, arr1));
         System.out.println("----------");
         System.out.println("In arr2 the maximum element is: ");
         System.out.println(findMaxArrayElement(n2, arr2));
+        System.out.println("----------");
+        System.out.println(arrayMax(n3, arr2));
         System.out.println("----------");
     }
 
@@ -25,6 +28,14 @@ public class FindMaxArrayElement {
             return arr[0];
         }
         return Math.max(arr[n - 1], findMaxArrayElement(n - 1, arr));
+    }
+
+    //Немного упрощенный вариант, стартовый индекс - (длина массива -1)
+    public static int arrayMax(int n, int[] arr) {
+        if (n == 0)  // Базовый случай
+            return arr[0];
+        //Будем выбирать каждый раз между элементом и предыдущим
+        return Math.max(arr[n], arrayMax(n - 1, arr));
     }
 
     // итеративный поиск максимального элемента
