@@ -12,7 +12,8 @@ public class SumOfArrayElements {
         int[] arr = new int[]{1, 2, 3, 4, 5};
         System.out.println("Sum Of Array Elements is: " + calculateSumOfArrayElements(arr, 0, arr.length));
         System.out.println("----------");
-        System.out.println("Sum Of Array Elements is: " + arraySum(arr, arr.length - 1));
+        SumOfArrayElements arrSum = new SumOfArrayElements();
+        System.out.println("Sum Of Array Elements is: " + arrSum.arraySum(arr, arr.length - 1));
         System.out.println("----------");
     }
 
@@ -26,7 +27,7 @@ public class SumOfArrayElements {
     }
 
     //Начальное значение индекса - (длина массива-1)
-    private static int arraySum(int[] arr, int index) {
+    private int arraySum(int[] arr, int index) {
         if (index == 0) {
             return arr[0]; // Базовый случай вернем первый элемент
         }
