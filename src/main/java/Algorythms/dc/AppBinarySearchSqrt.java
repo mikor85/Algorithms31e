@@ -2,9 +2,10 @@ package Algorythms.dc;
 
 public class AppBinarySearchSqrt {
     public static void main(String[] args) {
-        int number = 16;
+        int number = 144;
         AppBinarySearchSqrt appBinarySearchSqrt = new AppBinarySearchSqrt();
-        System.out.println("Is square ? " + number);
+        System.out.print("Is square ? " + number);
+        System.out.println(" => " + appBinarySearchSqrt.isSquare(number));
 
     }
 
@@ -18,7 +19,7 @@ public class AppBinarySearchSqrt {
                 return true;
             }
             if (mid * mid > number) {
-                right = mid + 1;
+                right = mid - 1;
             } else {
                 left = mid + 1;
             }
