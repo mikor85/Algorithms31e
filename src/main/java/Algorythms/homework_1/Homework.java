@@ -1,4 +1,4 @@
-package Algorythms.homework;
+package Algorythms.homework_1;
 
 // First level: Задача на сортировку:
 // Отсортировать по алфавиту список студентов группы.
