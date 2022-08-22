@@ -36,10 +36,11 @@ package Algorythms.homework_3;
  - Таких элементов может быть несколько.
  - Всегда есть пиковый элемент. */
 
-public class Homework_3 {
+public class NumberPower_Task1 {
     public static void main(String[] args) {
-        Homework_3 powerN = new Homework_3();
+        NumberPower_Task1 powerN = new NumberPower_Task1();
         int x = 3, n = 4;
+        System.out.println("Task 1:");
         System.out.println("Methods to raise the number to a power");
         System.out.println("1. Recursive method O(log n): " + x + " in a " + n + " power = " + powerN.getPowerRecursiveOLogN(x, n));
         System.out.println("2. Recursive method O(n): " + x + " in a " + n + " power = " + powerN.getPowerRecursiveOn(x, n));
@@ -88,10 +89,10 @@ public class Homework_3 {
 
     // 4. Итеративный метод
     private int getPowerIterative(int x, int n) {
-        int numPower = 1;
+        int res = 1;
         for (int i = 0; i < n; i++) {
-            numPower *= x;
+            res *= x;
         }
-        return numPower;
+        return res;
     }
 }
