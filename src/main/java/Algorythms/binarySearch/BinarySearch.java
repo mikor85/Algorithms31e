@@ -3,9 +3,10 @@ package Algorythms.binarySearch;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {-5, -2, 0, 4, 6, 7, 8, 12, 15, 16, 21, 24, 30};
-        int target = 30;
+        int target = 31;
 
         System.out.println(binarySearch(arr, target));
+        System.out.println(binarySearch2(arr, target));
     }
 
     private static int binarySearch(int[] arr, int target) {
