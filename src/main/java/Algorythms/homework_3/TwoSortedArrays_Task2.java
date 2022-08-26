@@ -11,12 +11,12 @@ package Algorythms.homework_3;
     72,  86,   100,  112,  113,  119,  256,  265,  349,  445,   770,    892
      7-й элемент этого массива равен 256. */
 
-public class TwoSortedArrays {
+public class TwoSortedArrays_Task2 {
     public static void main(String[] args) {
         int[] arr1 = {100, 112, 256, 349, 770};
         int[] arr2 = {72, 86, 113, 119, 265, 445, 892};
         int k = 7;  // это порядковый номер элемента в массиве (НЕ ИНДЕКС !!!)
-        TwoSortedArrays twoSortedArrays = new TwoSortedArrays();
+        TwoSortedArrays_Task2 twoSortedArrays = new TwoSortedArrays_Task2();
         System.out.println(twoSortedArrays.getArrayElement(arr1, arr2, k));
     }
 
