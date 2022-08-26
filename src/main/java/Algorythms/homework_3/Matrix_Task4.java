@@ -105,7 +105,6 @@ public class Matrix_Task4 {
                 }
             }
         }
-        Random rand = new Random();
         int[] resArr = getRandomIndexOfPeakElement(peakList);
         return twoDimArray[resArr[0]][resArr[1]];
     }
