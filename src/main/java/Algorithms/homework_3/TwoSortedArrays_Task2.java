@@ -44,6 +44,7 @@ public class TwoSortedArrays_Task2 {
         return resArray[k-1];
     }
 
+    // поиск позиции, на которую вставлять элемент
     public static int binarySearch(int[] a, int number) {
         int minIndex = 0;
         int maxIndex = a.length - 1;
