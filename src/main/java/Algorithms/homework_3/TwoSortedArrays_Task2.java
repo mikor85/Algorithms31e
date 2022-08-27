@@ -11,14 +11,100 @@ package Algorithms.homework_3;
     72,  86,   100,  112,  113,  119,  256,  265,  349,  445,   770,    892
      7-й элемент этого массива равен 256. */
 
+import java.util.Arrays;
+
 // TwoPointers Algorithm
 public class TwoSortedArrays_Task2 {
     public static void main(String[] args) {
         int[] arr1 = {100, 112, 256, 349, 770};
         int[] arr2 = {72, 86, 113, 119, 265, 445, 892};
         int k = 7;  // это порядковый номер элемента в массиве (НЕ ИНДЕКС !!!)
+        System.out.println(Arrays.toString(mergeArray(arr1, arr2)));
+        System.out.println("----------");
+        System.out.println(mergeArray(arr1, arr2, k));
+        System.out.println("----------");
+        System.out.println(getKPositionElement((mergeArray(arr1, arr2)), k));
+        System.out.println("----------");
         TwoSortedArrays_Task2 twoSortedArrays = new TwoSortedArrays_Task2();
         System.out.println(twoSortedArrays.getArrayElement(arr1, arr2, k));
+    }
+
+    // без слияния массивов
+    private static int mergeArray(int[] one, int[] two, int k) {
+        int length = one.length + two.length;
+        int indexOne = 0;
+        int indexTwo = 0;
+        int current = one[0];
+        int count = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (indexOne < one.length && indexTwo < two.length) {
+                int elementOne = one[indexOne];
+                int elementTwo = two[indexTwo];
+                if (elementOne < elementTwo) {
+                    indexOne++;
+                    current = elementOne;
+                } else {
+                    indexTwo++;
+                    current = elementTwo;
+                }
+                count++;
+                if (count == k) {
+                    return current;
+                }
+                continue;
+            }
+            if (indexOne < one.length && indexTwo >= two.length) {
+                current = one[indexOne];
+                count++;
+                indexOne++;
+            }
+            if (indexOne >= one.length && indexTwo < two.length) {
+                current = two[indexTwo];
+                indexTwo++;
+            }
+            count++;
+            if (count == k) {
+                return current;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
+    // получение в итоговом отсортированном массиве элемента под номером k
+    private static int getKPositionElement(int[] array, int k) {
+        return array[k - 1];
+    }
+
+    // метод слияния двух массивов
+    private static int[] mergeArray(int[] arr1, int[] arr2) {
+        int[] result = new int[arr1.length + arr2.length];
+        int indexOne = 0;
+        int indexTwo = 0;
+
+        for (int i = 0; i < result.length; i++) {
+            if (indexOne < arr1.length && indexTwo < arr2.length) {
+                int elementOne = arr1[indexOne];
+                int elementTwo = arr2[indexTwo];
+                if (elementOne < elementTwo) {
+                    result[i] = elementOne;
+                    indexOne++;
+                } else {
+                    result[i] = elementTwo;
+                    indexTwo++;
+                }
+                continue;
+            }
+            if (indexOne < arr1.length) {
+                result[i] = arr1[indexOne];
+                indexOne++;
+            }
+            if (indexTwo < arr2.length) {
+                result[i] = arr2[indexTwo];
+                indexTwo++;
+            }
+        }
+        return result;
     }
 
     private int getArrayElement(int[] arr1, int[] arr2, int k) {
@@ -41,7 +127,7 @@ public class TwoSortedArrays_Task2 {
             }
         }
 
-        return resArray[k-1];
+        return resArray[k - 1];
     }
 
     // поиск позиции, на которую вставлять элемент
