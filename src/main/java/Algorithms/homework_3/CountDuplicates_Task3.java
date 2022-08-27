@@ -1,4 +1,4 @@
-package Algorythms.homework_3;
+package Algorithms.homework_3;
 
 // Task 3:
 /* 3. Имея отсортированный массив arr[] и число x, напишите функцию, которая подсчитывает вхождения x в arr[].

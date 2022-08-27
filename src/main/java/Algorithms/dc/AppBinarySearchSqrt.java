@@ -1,4 +1,4 @@
-package Algorythms.dc;
+package Algorithms.dc;
 
 public class AppBinarySearchSqrt {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Algorythms.recursion;
+package Algorithms.recursion;
 
 // Задача 2:
 // Дан массив, написать рекурсивный метод нахождения максимального элемента в этом массиве.

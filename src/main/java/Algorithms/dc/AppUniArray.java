@@ -1,4 +1,4 @@
-package Algorythms.dc;
+package Algorithms.dc;
 
 public class AppUniArray {
     public static void main(String[] args) {

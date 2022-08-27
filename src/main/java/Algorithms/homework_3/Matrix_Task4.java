@@ -1,4 +1,4 @@
-package Algorythms.homework_3;
+package Algorithms.homework_3;
 
 // Task 4:
 /* 4. Найдите пиковый элемент в двумерном массиве.

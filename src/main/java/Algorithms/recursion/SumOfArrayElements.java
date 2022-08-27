@@ -1,4 +1,4 @@
-package Algorythms.recursion;
+package Algorithms.recursion;
 
 // Задача 1:
 // Дан массив, вычислить рекурсивно сумму всех элементов этого массива.

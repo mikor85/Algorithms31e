@@ -1,4 +1,4 @@
-package Algorythms.homework_3;
+package Algorithms.homework_3;
 
 // Task 1:
 /* 1. Даны два целых числа x и n, напишите функцию для вычисления x^n (x в степени n).
@@ -19,7 +19,7 @@ public class NumberPower_Task1 {
     }
 
     // 1. Рекурсивный метод O(log n)
-    private int getPowerRecursiveOLogN(int x, int n) {
+    private long getPowerRecursiveOLogN(long x, long n) {
         if (n == 0) {
             return 1;
         }
@@ -34,7 +34,7 @@ public class NumberPower_Task1 {
     }
 
     // 2. Рекурсивный метод O(n)
-    private int getPowerRecursiveOn(int x, int n) {
+    private long getPowerRecursiveOn(long x, long n) {
         if (n == 0) {
             return 1;
         }
@@ -45,7 +45,7 @@ public class NumberPower_Task1 {
     }
 
     // 3. Бинарный метод
-    private int getPowerBinary(int x, int n) {
+    private long getPowerBinary(long x, long n) {
         int res = 1;
         while (n >= 1) {
             if (n % 2 == 1)
@@ -57,7 +57,7 @@ public class NumberPower_Task1 {
     }
 
     // 4. Итеративный метод
-    private int getPowerIterative(int x, int n) {
+    private long getPowerIterative(long x, long n) {
         int res = 1;
         for (int i = 0; i < n; i++) {
             res *= x;
