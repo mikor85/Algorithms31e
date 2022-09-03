@@ -16,17 +16,17 @@ import java.util.Arrays;
 // TwoPointers Algorithm
 public class TwoSortedArrays_Task2 {
     public static void main(String[] args) {
-        int[] arr1 = {100, 112, 256, 349, 770};
-        int[] arr2 = {72, 86, 113, 119, 265, 445, 892};
+        int[] arrOne = {100, 112, 256, 349, 770};
+        int[] arrTwo = {72, 86, 113, 119, 265, 445, 892};
         int k = 7;  // это порядковый номер элемента в массиве (НЕ ИНДЕКС !!!)
-        System.out.println(Arrays.toString(mergeArray(arr1, arr2)));
+        System.out.println(Arrays.toString(mergeArray(arrOne, arrTwo)));
         System.out.println("----------");
-        System.out.println(mergeArray(arr1, arr2, k));
+        System.out.println(mergeArray(arrOne, arrTwo, k));
         System.out.println("----------");
-        System.out.println(getKPositionElement((mergeArray(arr1, arr2)), k));
+        System.out.println(getKPositionElement((mergeArray(arrOne, arrTwo)), k));
         System.out.println("----------");
         TwoSortedArrays_Task2 twoSortedArrays = new TwoSortedArrays_Task2();
-        System.out.println(twoSortedArrays.getArrayElement(arr1, arr2, k));
+        System.out.println(twoSortedArrays.getArrayElement(arrOne, arrTwo, k));
     }
 
     // без слияния массивов
