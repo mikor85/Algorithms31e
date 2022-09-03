@@ -23,5 +23,4 @@ public class CountDuplicates_Task3 {
         }
         return res;
     }
-
 }
