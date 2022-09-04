@@ -35,28 +35,23 @@ public class MergeSortDecrease_Task1 {
     private static void mergeArray(int[] one, int[] two, int[] array) {
         int indexOne = 0;
         int indexTwo = 0;
-
         for (int i = 0; i < array.length; i++) {
             if (indexOne < one.length && indexTwo < two.length) {
-                int elementOne = one[indexOne];
-                int elementTwo = two[indexTwo];
                 // знак "больше" или "меньше" указывает на порядок сортировки => убывание или возрастание
-                if (elementOne > elementTwo) {
-                    array[i] = elementOne;
+                if (one[indexOne] > two[indexTwo]) {
+                    array[i] = one[indexOne];
                     indexOne++;
                 } else {
-                    array[i] = elementTwo;
+                    array[i] = two[indexTwo];
                     indexTwo++;
                 }
                 continue;
             }
             if (indexOne < one.length) {
-                array[i] = one[indexOne];
-                indexOne++;
+                array[i] = one[indexOne++];
             }
             if (indexTwo < two.length) {
-                array[i] = two[indexTwo];
-                indexTwo++;
+                array[i] = two[indexTwo++];
             }
         }
     }
