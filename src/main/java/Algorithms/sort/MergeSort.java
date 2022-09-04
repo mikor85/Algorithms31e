@@ -14,6 +14,7 @@ public class MergeSort {
     }
 
     private static void mergeSort(int[] array, int length) {
+        // базовое условие
         if (length < 2) {
             return;
         }
@@ -40,7 +41,7 @@ public class MergeSort {
         int indexTwo = 0;
         int i = 0;
         while (indexOne < one.length && indexTwo < two.length) {
-            // знак "больше" или "меньше" отвечает за порядок сортировки => убывание или возрастание
+            // знак "больше" или "меньше" указывает на порядок сортировки => убывание или возрастание
             if (one[indexOne] < two[indexTwo]) {
                 array[i++] = one[indexOne++];
             } else {
