@@ -13,8 +13,17 @@ package Algorithms.homework_4;
 public class GetMissingArrayElement_Task3 {
     public static void main(String[] args) {
         int[] array = {4, 7, 9, 10, 14};
-        int n = 0;
+        int n = 10;
         System.out.println(getMissedUniqueElement(array, n));
+        System.out.println("----------");
+        System.out.println(findMissedElement(array, n));
+    }
+
+    public static int findMissedElement(int[] array, int n) {
+        int misElement = array[0] + n;
+        for (int count = 1; count < array.length && array[count] <= misElement; count++, misElement++) {
+        }
+        return misElement;
     }
 
     // n =               1    2       3           4     5     6
@@ -46,6 +55,6 @@ public class GetMissingArrayElement_Task3 {
                 }
             }
         }
-        return -999;
+        return array[0];
     }
 }
