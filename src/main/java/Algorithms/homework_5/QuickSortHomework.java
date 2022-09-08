@@ -27,7 +27,15 @@ public class QuickSortHomework {
         int leftIndex = start;
         int rightIndex = end;
 
-        int pivot = array[start + (end - start) / 2];
+        // оптимальный случай
+        //int pivot = array[start + (end - start) / 2];
+
+        // худший случай 1 - выбран первый опорный элемент
+        int pivot = array[start];
+
+        // худший случай 2 - выбран последний опорный элемент
+        //int pivot = array[end];
+
         while (leftIndex <= rightIndex){
 
             while (array[leftIndex] < pivot){
