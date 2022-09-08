@@ -4,15 +4,18 @@ import java.util.Arrays;
 
 public class QuickSortHomework {
     public static void main(String[] args) {
+
+        // Худшие случаи для входных массивов:
+        // 1. Массив отсортирован по возрастанию.
+        // 2. Массив отсортирован по убыванию.
+        // 3. Все элемента имеют одинаковые значения (частный случай для первого и второго случаев).
+        // 4. Выбран первый или последний элемент в качестве опорного.
+
         int[] array = {34, 56, 22, 78, 9, 3, 5, 15};
         quickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
-
         System.out.println("----------");
 
-        int[] arrayTwo = {34, 56, 22, 78, 9, 3, 5, 15};
-        Arrays.sort(arrayTwo);
-        System.out.println(Arrays.toString(arrayTwo));
     }
 
     private static void quickSort(int[] array, int start, int end) {
