@@ -1,4 +1,4 @@
-package Algorithms.lessonfive;
+package Algorithms.lessonFive;
 
 public class MergeString {
     public static void main(String[] args) {

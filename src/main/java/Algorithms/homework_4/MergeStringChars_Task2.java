@@ -7,8 +7,6 @@ package Algorithms.homework_4;
 // то остаток переписываем в результат. Метод аналогичен слиянию массивов в merge sort,
 // но без учета сравнения элементов.
 
-import Algorithms.lessonfive.MergeString;
-
 public class MergeStringChars_Task2 {
     public static void main(String[] args) {
         String one = "abcde";  // adbgckde
