@@ -3,8 +3,6 @@ package Algorithms.lessonSix.dynamicArray;
 public class AppDynamicArray {
     public static void main(String[] args) {
 
-        // System.currentTimeMillis() - текущее время (мс), запустить перед методом и после, вычислить дельту.
-
         DynamicArray dynamicArray = new DynamicArray();
         System.out.println(dynamicArray);
         dynamicArray.add(2);
