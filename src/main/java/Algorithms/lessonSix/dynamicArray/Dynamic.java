@@ -1,6 +1,10 @@
 package Algorithms.lessonSix.dynamicArray;
 
-public interface Dynamic {
+import java.util.Iterator;
+
+public interface Dynamic extends Iterable<Integer> {
+    Iterator<Integer> iterator();
+
     public void add(int data);
 
     public void addAt(int index, int data);

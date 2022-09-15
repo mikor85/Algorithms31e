@@ -1,12 +1,33 @@
 package Algorithms.lessonSix.dynamicArray;
 
 import java.util.Arrays;
+import java.util.Iterator;
+
+// Second level:
+// 2.Написать class DynamicArrayIterator для DynamicArray (сделать свой итератор для своего динамического массива).
 
 public class DynamicArray implements Dynamic {
 
     private int[] array;
     private int count;
     private int size;
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<Integer>() {
+            private int position = 0;
+
+            @Override
+            public boolean hasNext() {
+                return position < count;
+            }
+
+            @Override
+            public Integer next() {
+                return get(position++);
+            }
+        };
+    }
 
     public DynamicArray() {
         array = new int[1];
@@ -52,7 +73,7 @@ public class DynamicArray implements Dynamic {
 
     @Override
     public void removeAt(int index) {
-        if (index >= count){
+        if (index >= count) {
             throw new IndexOutOfBoundsException();
         }
         int[] temp = new int[count - 1];
@@ -97,7 +118,7 @@ public class DynamicArray implements Dynamic {
 
     @Override
     public void set(int index, int data) {
-        if (index >= count){
+        if (index >= count) {
             throw new IndexOutOfBoundsException();
         }
         array[index] = data;
