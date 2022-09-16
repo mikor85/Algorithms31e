@@ -2,11 +2,16 @@ package Algorithms.binarySearch;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = {-5, -2, 0, 4, 6, 7, 8, 12, 15, 16, 21, 24, 30};
-        int target = 31;
+        //            0   1  2  3  4  5  6  7  8   9  10  11  12  13  14
+        int[] arr = {-5, -2, 0, 4, 6, 7, 8, 8, 8, 12, 15, 16, 21, 24, 30};
+        int target = 8;
 
-        System.out.println(binarySearch(arr, target));
-        System.out.println(binarySearch2(arr, target));
+        //              0  1  2  3  4  5  6
+        int [] array = {1, 1, 2, 2, 2, 2, 3};
+        int x = 2;
+
+        //System.out.println(binarySearch(arr, target));
+        System.out.println(binarySearch2(array, x));
     }
 
     private static int binarySearch(int[] arr, int target) {
@@ -31,13 +36,16 @@ public class BinarySearch {
         int minIndex = 0;
         int maxIndex = a.length - 1;
         while (minIndex <= maxIndex) {
-            int midIndex = (minIndex + maxIndex) / 2;
-            if (a[minIndex] < number) {
+            int midIndex = minIndex + (maxIndex - minIndex) / 2;
+            if (number == a[midIndex]) {
+                return midIndex;
+            } else if (a[minIndex] < number) {
                 minIndex = midIndex + 1;
             } else if (number < a[maxIndex]) {
                 maxIndex = midIndex - 1;
             } else return midIndex;
         }
-        return minIndex;
+        //return minIndex;
+        return maxIndex;
     }
 }
