@@ -5,7 +5,7 @@ public class Fibonacci {
     public static void main(String[] args) {
         int n = 46;
         // в int максимальное число под номером 46,
-        // на 47 элементе
+        // на 47 элементе расчет начинается по кругу с отрицательных значений типа Integer.
 
         // Recursion
         double timeRecBefore = System.currentTimeMillis();
