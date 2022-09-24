@@ -10,16 +10,46 @@ package Algorithms.homework_4;
 // Second level:
 // 4. Решить задачу 3 с ожидаемой сложностью O(log n).
 
-public class GetMissingArrayElement_Task3 {
+public class HWElement_Task3 {
     public static void main(String[] args) {
-        int[] array = {4, 7, 9, 10, 14};
-        int n = 10;
-        System.out.println(getMissedUniqueElement(array, n));
-        System.out.println("----------");
-        System.out.println(findMissedElement(array, n));
+        int[] nums = {4, 7, 9, 10, 14};
+        int[] numsSingle = {4};
+        int n = 3;
+        HWElement_Task3 hwElement = new HWElement_Task3();
+        int missingElement = hwElement.binarySearchMissingElement(n, nums);
+        System.out.println(missingElement);
+
+        System.out.println(hwElement.binarySearchMissingElement(n, numsSingle));
     }
 
-    public static int findMissedElement(int[] array, int n) {
+    // Variant at Lesson7
+    private int missingCount(int index, int[] nums) {
+        return nums[index] - nums[0] - index;
+    }
+
+    private int binarySearchMissingElement(int n, int[] nums) {
+        int missingCount = missingCount(nums.length - 1, nums);
+        if (n > missingCount) {
+            return nums[nums.length - 1] + (n - missingCount);
+        }
+        int left = 0;
+        int right = nums.length - 1;
+        int mid = 0;
+        while (left != right) {
+            mid = left + (right - left) / 2;
+            missingCount = missingCount(mid, nums);
+            if (missingCount < n) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return nums[left - 1] + (n - missingCount(left - 1, nums));
+    }
+
+
+    // First variant My
+    private static int findMissedElement(int[] array, int n) {
         int misElement = array[0] + n;
         for (int count = 1; count < array.length && array[count] <= misElement; count++, misElement++) {
         }
@@ -31,6 +61,7 @@ public class GetMissingArrayElement_Task3 {
     // actual index  0            1       2  3                     4   = length=5
     // array        {4, (5), (6), 7, (8), 9, 10, (11), (12), (13), 14}
 
+    // Second variant My
     private static int getMissedUniqueElement(int[] array, int n) {
         // кол-во пропущенных элементов
         int misNum = array[array.length - 1] - array[0] - array.length + 1;

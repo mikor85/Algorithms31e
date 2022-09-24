@@ -21,10 +21,46 @@ public class QuickSortHomework {
 
     private static void quickSort(int[] array, int start, int end) {
         if (start < end) {  // базовый случай
-            int indexPivot = getIndexPivot(array, start, end);
+            int indexPivot = getIndexPivotMiddle(array, start, end);
             quickSort(array, start, indexPivot - 1);
-            quickSort(array, indexPivot/* + 1*/, end);
+            quickSort(array, indexPivot + 1, end);
         }
+    }
+
+    // Method at Lesson7
+    private static int getIndexPivotMiddle(int[] array, int start, int end) {
+        int mid = start + (end - start) / 2;
+        int pivot = array[mid];
+        int indexPivot = mid;  // index 0
+
+        while (start < end) {
+            while (array[start] < pivot) {
+                start++;
+            }
+            while (array[end] > pivot) {
+                end--;
+            }
+            if (start <= end) {
+                swap(array, start, end);
+                if (end == indexPivot) {
+                    indexPivot = start;
+                } else if (start == indexPivot) {
+                    indexPivot = end;
+                }
+                start++;
+                end--;
+            }
+        }
+
+        if (start < indexPivot && array[start] > array[mid]) {
+            swap(array, indexPivot, start);
+            indexPivot = start;
+        } else if (end > indexPivot && array[end] < array[mid]) {
+            swap(array, indexPivot, end);
+            indexPivot = end;
+        }
+
+        return indexPivot;
     }
 
     private static int getIndexPivot(int[] array, int start, int end) {
@@ -38,7 +74,7 @@ public class QuickSortHomework {
         int pivot = array[end];
 
         // =================================================
-        if (pivot == array[end]){
+        if (pivot == array[end]) {
             int indexPivot = start;
             for (int i = start; i < end; i++) {
                 if (array[i] <= pivot) {
@@ -51,15 +87,15 @@ public class QuickSortHomework {
         }
         int leftIndex = start;
         int rightIndex = end;
-        while (leftIndex <= rightIndex){
+        while (leftIndex <= rightIndex) {
 
-            while (array[leftIndex] < pivot){
+            while (array[leftIndex] < pivot) {
                 leftIndex++;
             }
-            while (array[rightIndex] > pivot){
+            while (array[rightIndex] > pivot) {
                 rightIndex--;
             }
-            if (leftIndex <= rightIndex){
+            if (leftIndex <= rightIndex) {
                 swap(array, leftIndex, rightIndex);
                 leftIndex++;
                 rightIndex--;
