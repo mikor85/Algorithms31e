@@ -25,19 +25,32 @@ public class SpecStack {
             System.out.println("Stack is empty");
             return 0;
         }
+        if (helper.peek() == arr[top]){
+            helper.pop();
+        }
+        System.out.println("Element " + arr[top] + " is deleted from stack");
         return arr[top--];
     }
 
     public void push(int x) {
         if (top < STACK_SIZE - 1) {
             arr[++top] = x;
-            System.out.println("Element as been added to stack");
+            System.out.println("Element " + x + " has been added to stack");
         } else {
             System.out.println("Stack overflow");
+        }
+        if (helper.empty()) {
+            helper.push(x);
+        } else if (x <= helper.peek()) {
+            helper.push(x);
         }
     }
 
     public int getMin() {
+        if (helper.empty()) {
+            System.out.print("Stack is empty");
+            return 0;
+        }
         return helper.peek();
     }
 
