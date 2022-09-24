@@ -7,6 +7,7 @@ public class Fibonacci {
         // в int максимальное число под номером 46,
         // на 47 элементе
 
+        // Recursion
         double timeRecBefore = System.currentTimeMillis();
         System.out.println("Recursion = " + rec(n));
         double timeRecAfter = System.currentTimeMillis();
@@ -17,15 +18,17 @@ public class Fibonacci {
             arr[i] = -1;
         }
 
+        // Memoization
         double timeMemoBefore = System.currentTimeMillis();
         System.out.println("Memoization = " + fibonacciDPMemo(n, arr));
         double timeMemoAfter = System.currentTimeMillis();
-        System.out.println("Memoization time = " + (timeRecAfter - timeRecBefore) + "ms");
+        System.out.println("Memoization time = " + (timeMemoAfter - timeMemoBefore) + "ms");
 
+        // Tabulation
         double timeTabBefore = System.currentTimeMillis();
         System.out.println("Tabulation = " + fibonacciDPTab(n));
         double timeTabAfter = System.currentTimeMillis();
-        System.out.println("Tabulation time = " + (timeRecAfter - timeRecBefore) + "ms");
+        System.out.println("Tabulation time = " + (timeTabAfter - timeTabBefore) + "ms");
     }
 
     private static int rec(int n) {
