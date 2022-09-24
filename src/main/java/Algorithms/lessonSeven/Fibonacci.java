@@ -1,6 +1,6 @@
 package Algorithms.lessonSeven;
 
-public class Fib {
+public class Fibonacci {
 
     public static void main(String[] args) {
         int n = 7;
