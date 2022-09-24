@@ -3,14 +3,29 @@ package Algorithms.lessonSeven;
 public class Fibonacci {
 
     public static void main(String[] args) {
-        int n = 7;
+        int n = 46;
+        // в int максимальное число под номером 46,
+        // на 47 элементе
+
+        double timeRecBefore = System.currentTimeMillis();
         System.out.println("Recursion = " + rec(n));
+        double timeRecAfter = System.currentTimeMillis();
+        System.out.println("Recursion time = " + (timeRecAfter - timeRecBefore) + "ms");
+
         int[] arr = new int[n + 1];
         for (int i = 2; i <= n; i++) {
             arr[i] = -1;
         }
+
+        double timeMemoBefore = System.currentTimeMillis();
         System.out.println("Memoization = " + fibonacciDPMemo(n, arr));
+        double timeMemoAfter = System.currentTimeMillis();
+        System.out.println("Memoization time = " + (timeRecAfter - timeRecBefore) + "ms");
+
+        double timeTabBefore = System.currentTimeMillis();
         System.out.println("Tabulation = " + fibonacciDPTab(n));
+        double timeTabAfter = System.currentTimeMillis();
+        System.out.println("Tabulation time = " + (timeRecAfter - timeRecBefore) + "ms");
     }
 
     private static int rec(int n) {
