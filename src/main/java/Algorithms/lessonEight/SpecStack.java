@@ -58,10 +58,6 @@ public class SpecStack {
         return helper.peek();
     }
 
-    // Напишите программу, которая реверсирует стек с помощью рекурсии.
-    // Вам не разрешено использовать конструкции цикла, такие как while, for.. и тд
-    // Вы можете использовать только следующие функции в стеке S: isEmpty(S), push(S), pop(S).
-
     public void reverseStack() {
         if (!empty()) {
             int topElement = pop();
