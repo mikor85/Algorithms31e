@@ -25,7 +25,7 @@ public class SpecStack {
             System.out.println("Stack is empty");
             return 0;
         }
-        if (helper.peek() == arr[top]){
+        if (helper.peek() == arr[top]) {
             helper.pop();
         }
         System.out.println("Element " + arr[top] + " is deleted from stack");
@@ -46,12 +46,38 @@ public class SpecStack {
         }
     }
 
+    public int size() {
+        return top + 1;
+    }
+
     public int getMin() {
         if (helper.empty()) {
             System.out.print("Stack is empty");
             return 0;
         }
         return helper.peek();
+    }
+
+    // Напишите программу, которая реверсирует стек с помощью рекурсии.
+    // Вам не разрешено использовать конструкции цикла, такие как while, for.. и тд
+    // Вы можете использовать только следующие функции в стеке S: isEmpty(S), push(S), pop(S).
+
+    public void reverseStack() {
+        if (!empty()) {
+            int topElement = pop();
+            reverseStack();
+            insertAtBottom(topElement);
+        }
+    }
+
+    public void insertAtBottom(int i) {
+        if (empty()){
+            push(i);
+        } else {
+            int topElement = pop();
+            insertAtBottom(i);
+            push(topElement);
+        }
     }
 
     public void printStack() {

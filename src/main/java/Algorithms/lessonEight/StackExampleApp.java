@@ -20,6 +20,14 @@ public class StackExampleApp {
         System.out.println("Min element is: " + stack.getMin());
         stack.pop();
         stack.pop();
+        stack.printStack();
+        System.out.println("Min element is: " + stack.getMin());
+        System.out.println("----------");
+        stack.reverseStack();
+        System.out.println("----------");
+        stack.printStack();
+        stack.push(5);
+        stack.printStack();
         System.out.println("Min element is: " + stack.getMin());
     }
 }
