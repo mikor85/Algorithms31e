@@ -17,6 +17,34 @@ public class MyLinkedList {
         size++;
     }
 
+    public void pushToIndex(int index, int data) {
+        Node node = new Node(data);
+        if (head == null) {
+            head = node;
+            size++;
+            return;
+        }
+        if (index > size || index < 0) {
+            System.out.println("Индекс вышел за допустимый предел");
+            return;
+        }
+        if (index == 0) {
+            node.setNext(head);
+            head = node;
+            size++;
+            return;
+        }
+        Node current = head;
+        // 2 1 0
+        while (current.getNext() != null && index > 1) {
+            current = current.getNext();
+            index--;
+        }
+        node.setNext(current.getNext());
+        current.setNext(node);
+        size++;
+    }
+
     // O(n) - Time complexity
     // O(1) - If you use an additional variable with link to last element
     public void pushToTail(int data) {
@@ -33,6 +61,25 @@ public class MyLinkedList {
         current.setNext(node);
     }
 
+    public int get(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Индекс вышел за допустимые пределы");
+            return -1;
+        }
+        if (index == 0) {
+            return head.getData();
+        }
+        Node current = head;
+        while (current.getNext() != null) {
+            current = current.getNext();
+            index--;
+            if (index == 0) {
+                return current.getData();
+            }
+        }
+        return current.getData();
+    }
+
     // O(1) - Time complexity
     public boolean removeFirst() {
         if (head == null) {
@@ -41,6 +88,29 @@ public class MyLinkedList {
         Node current = head;
         head = current.getNext();
         current.setNext(null);
+        size--;
+        return true;
+    }
+
+    public boolean remove(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Индекс вышел за допустимые пределы");
+            return false;
+        }
+        if (index == 0) {
+            return removeFirst();
+        }
+        if (index == size - 1) {
+            return removeLast();
+        }
+        Node current = head;
+        while (current.getNext() != null) {
+            if (index == 1) {
+                current.setNext(current.getNext().getNext());
+            }
+            current = current.getNext();
+            index--;
+        }
         size--;
         return true;
     }
@@ -59,7 +129,12 @@ public class MyLinkedList {
         if (previous != null) {
             previous.setNext(null);
         }
+        size--;
         return true;
+    }
+
+    public int size() {
+        return size;
     }
 
     @Override
@@ -77,10 +152,4 @@ public class MyLinkedList {
         stringBuilder.append("]");
         return stringBuilder.toString();
     }
-
-    // Home
-    // pushToIndex(int index, int data)
-    // remove(int index)
-    // get(int index)
-
 }

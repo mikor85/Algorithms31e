@@ -17,7 +17,21 @@ public class ListApp {
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.pushToTail(1);
         System.out.println(myLinkedList);
+        System.out.println("size = " + myLinkedList.size());
+        myLinkedList.pushToIndex(0, 10);
+        System.out.println(myLinkedList);
+        System.out.println("size = " + myLinkedList.size());
+        myLinkedList.pushToIndex(2, 20);
+        System.out.println(myLinkedList);
+        System.out.println("size = " + myLinkedList.size());
+        myLinkedList.pushToIndex(1, 30);
+        System.out.println(myLinkedList);
+        System.out.println("size = " + myLinkedList.size());
 
+        System.out.println(myLinkedList.remove(3));
+        System.out.println(myLinkedList);
+        System.out.println("size = " + myLinkedList.size());
+        System.out.println("getData = " + myLinkedList.get(2));
     }
 
     private void print(Node node) {
